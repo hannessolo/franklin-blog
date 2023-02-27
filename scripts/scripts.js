@@ -27,6 +27,15 @@ function buildHeroBlock(main) {
   }
 }
 
+function buildCodeLangBlock(main) {
+  main.querySelectorAll('pre').forEach((codeElem) => {
+    const language = codeElem.nextElementSibling;
+    const newCode = codeElem.cloneNode(true);
+    const block = buildBlock('code', { elems: [newCode, language] });
+    codeElem.replaceWith(block);
+  });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -34,6 +43,7 @@ function buildHeroBlock(main) {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildCodeLangBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -103,6 +113,18 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+}
+
+export function loadScript(url, callback, type) {
+  const head = document.querySelector('head');
+  const script = document.createElement('script');
+  script.src = url;
+  if (type) {
+    script.setAttribute('type', type);
+  }
+  head.append(script);
+  script.onload = callback;
+  return script;
 }
 
 /**
