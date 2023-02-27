@@ -5,13 +5,18 @@ header {
 header p {
   text-decoration: underline #cf5f3a 2px;
   color: #000;
-  font-size: 50pt;
+  font-size: 40px;
   font-weight: 700;
+  margin: 0;
 }
 
 @media (min-width: 600px) {
   header {
     padding: 64px 32px;
+  }
+
+  header p {
+    font-size: 64px;
   }
 }
 
