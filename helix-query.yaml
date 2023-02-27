@@ -1,0 +1,14 @@
+indices:
+  articles:
+    target: /query-index.json
+    include:
+      - 'articles/**'
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      date:
+        select: head > meta[name="date"]
+        value: |
+          attribute(el, 'content')
