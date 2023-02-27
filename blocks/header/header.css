@@ -1,0 +1,24 @@
+header {
+  padding: 12px;
+}
+
+header p {
+  text-decoration: underline #cf5f3a 2px;
+  color: #000;
+  font-size: 50pt;
+  font-weight: 700;
+}
+
+@media (min-width: 600px) {
+  header {
+    padding: 64px 32px;
+  }
+}
+
+@media (min-width: 900px) {
+  header p {
+    display: block;
+    max-width: 900px;
+    margin: auto;
+  }
+}
