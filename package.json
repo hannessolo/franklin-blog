@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Starter project for Adobe Helix",
   "scripts": {
-    "start": "npx @adobe/helix-cli up",
+    "start": "npx @adobe/helix-cli up --print-index",
     "test": "wtr \"./test/**/*.test.js\" --node-resolve --port=2000 --coverage",
     "test:watch": "npm test -- --watch",
     "lint:js": "eslint .",

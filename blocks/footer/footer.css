@@ -1,7 +1,7 @@
 footer {
-  padding: 2rem;
-  background-color: var(--overlay-background-color);
+  padding: 12px;
   font-size: var(--body-font-size-s);
+  bottom: 0;
 }
 
 footer .footer {
@@ -11,4 +11,19 @@ footer .footer {
 
 footer .footer p {
   margin: 0;
+}
+
+
+@media (min-width: 600px) {
+  footer {
+    padding: 64px 32px;
+  }
+}
+
+@media (min-width: 900px) {
+  footer .footer p {
+    display: block;
+    max-width: 900px;
+    margin: auto;
+  }
 }

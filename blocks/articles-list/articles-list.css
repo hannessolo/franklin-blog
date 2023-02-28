@@ -1,0 +1,49 @@
+.articles-list.block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.articles-list.block li {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.articles-list.block h2, span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.articles-list.block span {
+  color: #cf5f3a;
+}
+
+.articles-list.block a h2 {
+  color: #067bc2;
+}
+
+.articles-list.block .articles-list-heading {
+  color: rgb(60 60 67 / 60%);
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgb(60 60 67 / 60%);
+  width: 100%;
+}
+
+
+@media (min-width: 800px) {
+  .articles-list.block li {
+    position: relative;
+  }
+
+  .articles-list.block .year-mark {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .articles-list.block span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
