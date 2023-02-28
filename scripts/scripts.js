@@ -18,13 +18,22 @@ window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information 
 
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
-  const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+  const date = main.querySelector('p');
+
+  if (date?.textContent?.match(/\d\d.\d\d.\d\d\d\d/)) {
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    section.append(buildBlock('hero', { elems: [h1, date] }));
     main.prepend(section);
   }
+}
+
+function buildCodeLangBlock(main) {
+  main.querySelectorAll('pre').forEach((codeElem) => {
+    const language = codeElem.nextElementSibling;
+    const newCode = codeElem.cloneNode(true);
+    const block = buildBlock('code', { elems: [newCode, language] });
+    codeElem.replaceWith(block);
+  });
 }
 
 /**
@@ -34,6 +43,7 @@ function buildHeroBlock(main) {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildCodeLangBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -103,6 +113,18 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+}
+
+export function loadScript(url, callback, type) {
+  const head = document.querySelector('head');
+  const script = document.createElement('script');
+  script.src = url;
+  if (type) {
+    script.setAttribute('type', type);
+  }
+  head.append(script);
+  script.onload = callback;
+  return script;
 }
 
 /**
