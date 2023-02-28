@@ -3,11 +3,19 @@ header {
 }
 
 header p {
-  text-decoration: underline #cf5f3a 2px;
   color: #000;
   font-size: 40px;
   font-weight: 700;
   margin: 0;
+}
+
+header p a:any-link {
+  text-decoration: underline #cf5f3a 2px;
+  color: #000;
+}
+
+header p a:any-link:hover {
+  text-decoration-color: #000;
 }
 
 @media (min-width: 600px) {
