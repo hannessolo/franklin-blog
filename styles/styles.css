@@ -56,6 +56,10 @@ body.appear {
   display: unset;
 }
 
+main {
+  position: relative;
+}
+
 header {
   height: var(--nav-height);
 }
