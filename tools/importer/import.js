@@ -76,9 +76,6 @@ export default {
       'footer',
     ]);
 
-    // create the metadata block and append it to the main element
-    createMetadata(main, document);
-
     return main;
   },
 
