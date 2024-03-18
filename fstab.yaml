@@ -1,2 +1,5 @@
 mountpoints:
   /: https://drive.google.com/drive/u/0/folders/1WvWzn5YIpYanBUUkCpvl79J7PtS6Ujvy
+
+folders:
+  /test/: /articles/2rf0dfxvdxkakyqx3zgimp
